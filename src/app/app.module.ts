@@ -1,13 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import { AlertsService } from './alert-service/alerts.service';
+import { HttpClientModule } from '@angular/common/http';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { RouterModule, Routes } from '@angular/router'
+import { NgProgressHttpModule } from '@ngx-progressbar/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { RoutingModule} from './routing/routing.module'
 import { AppComponent } from './app.component';
 import { GoalComponent } from './goal/goal.component';
 import { GoalDetailsComponent } from './goal-details/goal-details.component';
 import { StrikethroughDirective } from './strikethrough.directive';
 import { GoalFormComponent } from './goal-form/goal-form.component';
+import { AboutComponent } from './about/about.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +22,19 @@ import { GoalFormComponent } from './goal-form/goal-form.component';
     GoalComponent,
     GoalDetailsComponent,
     StrikethroughDirective,
-    GoalFormComponent
+    GoalFormComponent,
+    AboutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    RoutingModule,
+    HttpClientModule,
+    NgProgressModule,
+    NgProgressHttpModule,
   ],
-  providers: [],
+  providers: [AlertsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
